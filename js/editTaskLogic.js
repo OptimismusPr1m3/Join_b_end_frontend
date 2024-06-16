@@ -114,11 +114,11 @@ function printEditButton(taskId) {
 function showAlreadyAssContactsEdit(selectedTaskContacts) {
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        initials = getInitials(contact.firstName, contact.lastName);
+        initials = getInitials(contact.first_name, contact.last_name);
         const contactCheckbox = document.getElementById(`checkbox${i}`)
         for (let j = 0; j < selectedTaskContacts.length; j++) {
             const sAssContact = selectedTaskContacts[j];
-            if (contact.firstName == sAssContact.firstName && contact.lastName == sAssContact.lastName) {
+            if (contact.first_name == sAssContact.first_name && contact.last_name == sAssContact.last_name) {
                 contactCheckbox.checked = true;
                 assignedContacts.innerHTML += assignedContactsTemplateEdit(contact.color);
             }

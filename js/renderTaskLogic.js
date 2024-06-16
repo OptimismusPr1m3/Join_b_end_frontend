@@ -200,6 +200,21 @@ function renderBigTaskHead(task) {
     `
 }
 
+
+function delTask(taskIndex) {
+    let taskURL
+    tasks.forEach(task => {
+        if (task.uniqueIndex == taskIndex) {
+            taskURL = task.url
+        }
+    });
+    console.log(taskURL)
+    fetch(taskURL, {method: "DELETE", redirect: "follow"})
+      .then((response) => response.text())
+      .then(() => initBoard('board'), closeTask())
+      .catch((error) => console.error(error));
+  }
+
 /**
  * Generates HTML template for a delete button with hover effects.
  *
@@ -209,8 +224,8 @@ function renderDeleteButton(uniqueIndex) {
     return /*html*/`
         <img class="delete-img" src="assets/images/delete.svg" alt="">
         <img class="delete-img" src="assets/images/Delete-shrift-black.svg" alt="">
-        <img class="hover-img" style="display: none;" onclick="deleteTask(${uniqueIndex})" src="assets/images/delete-blue.svg" alt="">
-        <img class="hover-img" style="display: none;" onclick="deleteTask(${uniqueIndex})" src="assets/images/Delete-shrift.svg" alt="">
+        <img class="hover-img" style="display: none;" onclick="delTask(${uniqueIndex})" src="assets/images/delete-blue.svg" alt="">
+        <img class="hover-img" style="display: none;" onclick="delTask(${uniqueIndex})" src="assets/images/Delete-shrift.svg" alt="">
     `
 }
 

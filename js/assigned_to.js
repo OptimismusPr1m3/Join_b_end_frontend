@@ -10,7 +10,7 @@ function assignContact() {
     contactSelection.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         contact = contacts[i];
-        initials = getInitials(contact.firstName, contact.lastName); // contact.js
+        initials = getInitials(contact.first_name, contact.last_name); // contact.js
         contactSelection.innerHTML += contactTemplate(contact, i);
     }
 }
@@ -28,7 +28,7 @@ function contactTemplate(contact, i) {
         <div class="contactAddTask checkboxContainer">
             <div class="contactInfoContainer">
                 <div class="contact-bubble small contactBubbleAddTask" style="background-color: ${contact.color}">${initials}</div>
-                <option>${contact.firstName} ${contact.lastName}</option>
+                <option>${contact.first_name} ${contact.last_name}</option>
             </div>
             <input onclick="showAssignedContacts()" id="checkbox${i}" class="checkbox" type="checkbox" value="">
         </div>
@@ -139,7 +139,7 @@ function showAssignedContacts() {
     contactBubbles = []; // makes sure bubbles aren´t multiplied
     for (let i = 0; i < contacts.length; i++) { // Iterate through the contacts array and display assigned contact bubbles
         contact = contacts[i];
-        initials = getInitials(contact.firstName, contact.lastName);
+        initials = getInitials(contact.first_name, contact.last_name);
         let checkbox = document.getElementById(`checkbox${i}`);
         if (checkbox.checked) {
             printContact();
@@ -155,8 +155,8 @@ function printContact() {
     contactBubbles.push({
         initials: initials,
         color: contact.color,
-        firstName: contact.firstName,
-        lastName: contact.lastName
+        firstName: contact.first_name,
+        lastName: contact.last_name
     })
     assignedContacts.innerHTML += assignedContactsTemplate();
 }

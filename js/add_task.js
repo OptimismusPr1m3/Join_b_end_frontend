@@ -296,8 +296,8 @@ async function addTaskToBoard(priority) {
         console.log(task)
         setTask(task);
         //await setItem('tasks', JSON.stringify(tasks));
-        //initAddTask('tasks');
-        //window.location.href = "board.html"; // Redirects to the board.html page.
+        initAddTask('tasks');
+        window.location.href = "board.html"; // Redirects to the board.html page.
     }
     saveBoardStateLocal(null);
 }

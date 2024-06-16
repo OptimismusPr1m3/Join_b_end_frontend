@@ -52,7 +52,7 @@ async function fetchContacts() {
   await fetch(TASK_URL, { method: "GET", redirect: "follow" })
     .then((response) => response.text())
     .then((result) => (contacts = JSON.parse(result)))
-    .then(() => console.log(tasks))
+    .then(() => console.log(contacts))
     .catch((error) => console.error(error));
 }
 
@@ -106,6 +106,11 @@ async function fetchTasks() {
     .then(() => console.log(tasks))
     .catch((error) => console.error(error));
 }
+
+
+
+
+
 
 // DELETE CONTENT
 /**
