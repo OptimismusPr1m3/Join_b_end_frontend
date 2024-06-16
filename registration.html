@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_styles/register_style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/join.svg">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="js/classes/contact.class.js"></script>
+    <script src="js/classes/user.class.js"></script>
+    <script src="js/remoteStorage.js"></script>
+    <script src="js/userRegistration.js"></script>
+    <title>Register</title>
+</head>
+
+<body onload="init()">
+    <section id="popupBlend" class="popup-blend d-none">
+        <span id="popupText" class="popup-text">Registration successfull !</span>
+    </section>
+    <section class="login-content">
+        <div class="header">
+            <img src="assets/images/Join_Logo_Login.svg">
+        </div>
+        <div class="form">
+            <div class="form-head">
+                <a href="login_index.html"><img src="assets/images/arrow-left-line.svg"></a>
+                <h1>Sign up</h1>
+                <div style="width: 32px;"></div>
+            </div>
+            <div class="decoline"></div>
+            <form class="login-form" onsubmit="registration(); return false">
+                <input class="input-style person-styling" onchange="checkFullName()" id="fullName" required type="name"
+                    placeholder="Name">
+                <input class="input-style email-styling" onchange="checkEmail()" id="email" required type="email"
+                    placeholder="Email">
+                <div class="fish-eye-div">
+                    <input class="input-style pw-styling" id="password"
+                        onkeyup="toggleFishEye('fishBtn', 'fishBtnImg'); checkPasswords()" required type="password"
+                        placeholder="Password">
+                    <button onclick="togglePasswordVisibility('password', 'fishBtnImg')" type="button" id="fishBtn"
+                        class="fish-eye-btn"><img id="fishBtnImg" src="assets/images/lock.svg"></button>
+                </div>
+                <div class="fish-eye-div">
+                    <input class="input-style pw-styling" id="cPassword"
+                        onkeyup="toggleFishEye('cFishBtn', 'cFishBtnImg');checkPasswords()" required type="password"
+                        placeholder="Confirm Password">
+                    <button onclick="togglePasswordVisibility('cPassword', 'cFishBtnImg')" type="button" id="cFishBtn"
+                        class="fish-eye-btn"><img id="cFishBtnImg" src="assets/images/lock.svg"></button>
+                </div>
+                <div class="checkbox">
+                    <input required type="checkbox" name="remember-me" id="rememberMe">
+                    <p>I accept the <a href="plainPolicy.html">Privacy Policy</a></p>
+                </div>
+                <div class="btns">
+                    <button class="sign-up">Sign up</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <a href="plainPolicy.html">Privacy Policy</a>
+            <a href="plainLNotice.html">Legal notice</a>
+        </div>
+    </section>
+</body>
+
+</html>

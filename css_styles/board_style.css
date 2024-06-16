@@ -1,0 +1,784 @@
+input {
+    width: 312px;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+.main-content {
+    width: 100%;
+    height: 100vh;
+}
+
+.board {
+    padding: 0 64px 32px 0;
+    padding-left: 25%;
+}
+
+.kanban-title {
+    padding-left: 30%;
+}
+
+.head-section-1 {
+    width: 100%;
+}
+
+.headerBoard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerFlex {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 32px;
+}
+
+.headerFlex input,
+button {
+    height: 48px;
+}
+
+.input-container {
+    display: inline-block;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    color: lightgrey;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.border-left {
+    position: absolute;
+    top: 8px;
+    right: 64px;
+    height: 31px;
+    width: 1px;
+    background: #d1d1d1;
+    pointer-events: none;
+}
+
+.input-icon:hover {
+    background-color: lightgrey;
+    border-radius: 9999px;
+}
+
+.status {
+    display: flex;
+    gap: 32px;
+}
+
+.standardImg {
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.hoverImg {
+    display: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.standardImg:hover+.hoverImg {
+    display: block;
+}
+
+.standardImg:hover {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    width: 252px;
+}
+
+.test2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #42526E;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.no-to-do {
+    color: #a8a8a8;
+    border: 1px dotted #a8a8a8;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.user-story {
+    width: 256px;
+    background-color: #0038FF;
+    color: white;
+    padding: 4px 16px 4px 16px;
+    border-radius: 8px;
+    margin: 0;
+    width: max-content;
+}
+
+.status-board {
+    display: flex;
+    background-color: #ffff;
+    border-radius: 24px;
+    padding: 16px;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    border: solid 1.5px #DBDBDB;
+}
+
+.short-info {
+    color: #a8a8a8;
+    font-weight: 400;
+}
+
+.progress {
+    border-radius: 4px;
+    background-color: #F4F4F4;
+    display: flex;
+    justify-content: space-between;
+    width: 128px;
+}
+
+.progress-bar {
+    width: auto;
+    border-radius: 8px;
+    height: 8px;
+    background-color: #007bff;
+}
+
+.list-style {
+    list-style: none;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.initial-image {
+    display: none;
+    padding-right: 16px;
+}
+
+.changed-image {
+    display: block;
+    padding-right: 16px;
+}
+
+.initial-image:hover {
+    cursor: pointer;
+}
+
+.changed-image:hover {
+    cursor: pointer;
+}
+
+.priority {
+    display: flex;
+    justify-content: end;
+}
+
+.flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 220px;
+}
+
+.flex-box p {
+    font-size: 12px;
+}
+
+.card-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100% - 24px);
+}
+
+.card-content::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+}
+
+.card-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.card-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Farbe des Scrollbar-Daumens bei Hover */
+}
+
+.technical-task {
+    width: 256px;
+    background-color: #1FD7C1;
+    color: white;
+    padding: 4px 16px 4px 16px;
+    border-radius: 8px;
+    margin: 0;
+    width: max-content;
+}
+
+#myModal {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    animation: myModal 0.2s linear;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1116px;
+    border-radius: 30px;
+    padding: 48px 40px 48px 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.modal-content h1 {
+    margin: 0;
+}
+
+.modal-content p {
+    font-size: 16px;
+}
+
+.add-task-board {
+    margin: 0 auto;
+}
+
+.priority {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priority-items {
+    display: flex;
+    align-items: center;
+}
+
+.priority img {
+    margin-left: auto;
+}
+
+.priority-text {
+    display: flex;
+    align-items: flex-start;
+}
+
+.priority-text p {
+    margin: 0;
+    outline-style: solid;
+}
+
+.FH {
+    border-radius: 45px;
+    font-size: 12px;
+    padding: 8px;
+    background-color: #8CAB98;
+    color: white;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.SW1 {
+    border-radius: 45px;
+    font-size: 12px;
+    padding: 8px;
+    background-color: #2A2239;
+    color: white;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.SW2 {
+    border-radius: 45px;
+    font-size: 12px;
+    padding: 8px;
+    background-color: #8C2526;
+    color: white;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.task {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    animation: myModal 0.2s linear;
+    overflow: hidden;
+}
+
+.open-task {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 400px;
+    max-width: 525px;
+    max-height: 75%;
+    overflow-y: auto;
+    border-radius: 30px;
+    padding: 48px 40px 48px 40px;
+    display: flex;
+    gap: 24px;
+}
+
+#closeModal {
+    color: #2A3647;
+    background-color: white;
+    border: none;
+    border-radius: 56px;
+    cursor: pointer;
+    text-align: center;
+    position: fixed;
+    top: 64px;
+    right: 24px;
+}
+
+#closeModal:hover {
+    background-color: rgba(211, 211, 211, 0.551);
+}
+
+.open-task button {
+    height: 32px;
+    width: 32px;
+}
+
+.headline {
+    font-size: 48px;
+    margin: 12px 0;
+}
+
+.taskInformation {
+    font-size: 20px;
+    color: black !important;
+}
+
+.m-left1 {
+    margin-left: 16px;
+    color: black !important;
+}
+
+.m-left2 {
+    margin-left: 32px;
+    color: black !important;
+}
+
+.board-img {
+    width: 17px;
+    height: 12px;
+    padding-left: 10px;
+}
+
+.assignedFrom {
+    display: flex;
+    font-size: 19px;
+    align-items: center;
+    gap: 16px;
+    color: black;
+}
+
+.status-board-open {
+    gap: 24px;
+    border: none;
+    cursor: auto;
+}
+
+.openBoard-options {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-bottom: 32px;
+    padding-right: 16px;
+}
+
+.openBoard-options span {
+    padding-left: 8px;
+}
+
+.border-right {
+    border-right: 1px solid #D1D1D1;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.hover-bg {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-img {
+    display: inline-block;
+}
+
+.hover-bg:hover .delete-img {
+    display: none;
+}
+
+.hover-bg:hover .hover-img {
+    display: inline-block !important;
+}
+
+.openBoard-options img {
+    padding-left: 8px;
+}
+
+.small {
+    margin-left: -8px;
+    border-style: double;
+}
+
+.sidebar {
+    position: fixed;
+    min-height: 100vh;
+    height: 100%;
+    width: 20%;
+}
+
+.newTask {
+    height: 520px;
+    overflow-x: auto;
+}
+
+.newTask::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+}
+
+.newTask::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.newTask::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.newTask::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Farbe des Scrollbar-Daumens bei Hover */
+}
+
+.noAvailableTask {
+    height: 200px;
+}
+
+.dBlock {
+    display: flex !important;
+}
+
+.dynamicDisplayFlex {
+    display: block;
+}
+
+ul {
+    padding: 0;
+}
+
+.form {
+    overflow: visible;
+}
+
+.subtaskContainerBoard {
+    position: initial;
+}
+
+.moveToOptions{
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    position: relative;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    margin-left: -10px;
+    opacity: 0;
+}
+
+.mobileDots{
+    transform: rotate(90deg);
+    display: none;
+}
+
+.moveToOptionsPopup{
+    position: absolute;
+    z-index: 20;
+    top: 1px;
+    font-size: 14px;
+    width: 120px;
+    color: white;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #081931;
+    padding: 6px;
+}
+
+.mobileOptionsAnimation {
+    animation: mOptionsFadeIn 2s forwards;
+}
+
+@keyframes mOptionsFadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.moveToInvis{
+    display: none;
+}
+
+.moveToOptionsPopup p{
+    font-weight:700;
+    margin: 10px 0px;
+}
+
+.moveToOptionsPopup h4{
+    margin: 12px 0px;
+}
+
+/* responsive design */
+@media(max-width:1500px) {
+    .status {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .board {
+        padding-bottom: 80px;
+    }
+}
+
+@media(min-width:1330px) {
+    .subtaskContainer {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 200px;
+        width: auto;
+    }
+
+    .subtaskContainer::-webkit-scrollbar {
+        width: 5px;
+        border-radius: 5px;
+    }
+
+    .subtaskContainer::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    .subtaskContainer::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    .subtaskContainer::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+}
+
+@media(max-width:1024px) {
+    .sidebar {
+        bottom: 0;
+        left: 0;
+        min-height: auto;
+        height: auto;
+        width: 100%;
+    }
+
+    .board {
+        padding: 0 24px 104px 24px;
+    }
+
+    .headerBoard {
+        flex-direction: column;
+    }
+
+    .headerFlex {
+        flex-direction: row;
+        margin-top: -64px;
+    }
+
+    .test2 {
+        font-size: 32px;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+}
+
+@media(min-width:850px) and (max-width:1500px) {
+    .d-flex {
+        width: 376px;
+    }
+}
+
+@media(min-width:750px) {
+    .headerBoard {
+        flex-direction: row;
+    }
+
+    .headerFlex {
+        margin-top: 0;
+    }
+
+    .status {
+        margin-top: -88px;
+    }
+}
+
+@media(max-width: 600px){
+    .mobileDots{
+        display: flex;
+    }
+}
+
+@media(min-width:600px) {
+    .status-board {
+        font-size: 18px;
+    }
+
+    .dynamicDisplayFlex {
+        display: flex !important;
+        gap: 32px;
+        margin-top: 16px;
+    }
+}
+
+@media(min-width:320px) and (max-width:600px) {
+    h1 {
+        font-size: 52px;
+        margin-block-end: 0;
+        padding-bottom: 32px;
+    }
+
+    .headerBoard {
+        flex-direction: column;
+    }
+
+    .headerFlex {
+        flex-direction: column-reverse;
+        margin-top: -85px;
+    }
+
+    .createBtn span {
+        display: none;
+    }
+
+    .addTaskBtn {
+        margin-left: 240px;
+    }
+
+    .open-task {
+        width: 94%;
+        min-width: 0;
+        padding: 0;
+        justify-content: center;
+    }
+}
+
+@media(max-width:300px) {
+    .createBtn span {
+        display: none;
+    }
+
+    .headerFlex {
+        gap: 4px;
+    }
+
+    .border-left {
+        right: 42px;
+    }
+
+    .input-icon {
+        right: 8px;
+    }
+
+    .open-task {
+        min-width: 0;
+        padding: 8px;
+        width: 240px;
+    }
+
+    .headline {
+        font-size: 40px;
+    }
+
+    .status-board-open {
+        gap: 12px;
+    }
+}
+
+/* responsive design - mobile */
+
+@media(min-width:320px) and (max-height: 740px) {
+    .headline {
+        font-size: 40px;
+    }
+
+    .status-board-open {
+        gap: 12px;
+    }
+}

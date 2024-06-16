@@ -1,0 +1,502 @@
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 61px;
+    padding-right: 24px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 27px;
+}
+
+hr {
+    height: 102.2px;
+    margin: 0;
+    border: 1px solid #D1D1D1;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.summary {
+    height: 90%;
+    background-color: #f6f7f8;
+    overflow-y: auto;
+}
+
+.summaryMain {
+    display: flex;
+    align-items: center;
+    padding: 0 64px;
+    margin-bottom: 48px;
+}
+
+.summaryHead {
+    display: flex;
+    align-items: center;
+    padding: 0 64px;
+}
+
+.summaryHead h1 {
+    border-right: 3px solid #29ABE2;
+    line-height: 59px;
+    margin-bottom: 24px;
+}
+
+.dFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
+}
+
+.dFlex h1 {
+    margin: 0;
+}
+
+.borderRadius {
+    padding: 38px 19px 38px 19px;
+    background-color: white;
+    border-radius: 30px;
+    border: solid 1.5px #DBDBDB;
+}
+
+.flexDirection {
+    display: flex;
+    flex-direction: column;
+}
+
+.summaryHead h2 {
+    margin-left: 24px;
+    margin-bottom: -16px;
+}
+
+.summaryWidth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.date p:first-child {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.flexDirection h1 {
+    font-size: 64px;
+}
+
+.taskInfo span {
+    font-size: 21px;
+    text-align: center;
+}
+
+.summaryTasks h1 {
+    padding: 0;
+    text-align: center;
+}
+
+.itemsCenter {
+    display: flex;
+    align-items: center;
+}
+
+.summaryTasks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 560px;
+    text-align: center;
+}
+
+.firstList {
+    padding: 38px 50px 38px 58px;
+}
+
+.flexDirection p {
+    margin: 0;
+}
+
+.gap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.maxWidth {
+    width: 168px;
+}
+
+.summaryInfo {
+    cursor: pointer;
+}
+
+.greet {
+    display: flex;
+    flex-direction: column;
+    padding-left: 64px;
+    margin-bottom: 24px;
+}
+
+.greet h1 {
+    color: #29ABE2;
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.greet h2 {
+    color: #2A3647;
+    font-size: 47px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.urgent {
+    cursor: pointer;
+}
+
+.borderRadius:hover {
+    background-color: #2A3647;
+    color: white;
+    transform: scale(1.05);
+    transition: .100s;
+}
+
+.hover-image {
+    display: none;
+}
+
+.firstList:hover .hover-image {
+    display: block;
+}
+
+.firstList:hover .alternate-image {
+    display: none;
+}
+
+.display-none {
+    display: none;
+}
+
+/* responsive design */
+
+@media(min-width:1024px) and (max-width:1270px) {
+    .greet {
+        padding-left: 24px;
+    }
+
+    .greet h1 {
+        font-size: 32px;
+    }
+
+    .greet h2 {
+        font-size: 32px;
+    }
+
+    .summaryTasks {
+        gap: 16px;
+    }
+}
+
+@media(max-width:1024px) {
+    .summaryMain {
+        padding: 0 24px;
+    }
+
+    .summaryHead {
+        margin-top: -24px;
+    }
+
+    .summaryHead {
+        flex-direction: column;
+        padding-left: 32px;
+        align-items: start;
+        margin-bottom: 16px;
+    }
+
+    .summaryHead h1 {
+        border-right: none;
+        font-size: 56px;
+        margin-block-end: 0;
+        margin-bottom: 8px;
+    }
+
+    .summaryHead h2 {
+        font-size: 22px;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .summaryTasks {
+        gap: 8px;
+        width: 100%;
+    }
+
+    .greet {
+        display: none;
+    }
+
+    .decoline {
+        margin-top: 24px;
+    }
+
+    .display-none {
+        display: block;
+    }
+
+    .head-section-1 {
+        margin-left: 0
+    }
+
+    .dFlex {
+        width: 100%;
+    }
+}
+
+@media(max-width:750px) {
+    .greeting-mobile {
+        left: 15% !important;
+    }
+
+    .greeting-mobile h1 {
+        font-size: 50px !important;
+    }
+
+    .greeting-mobile h2 {
+        font-size: 32px !important;
+    }
+}
+
+@media(max-width:600px) {
+    .summary {
+        padding: 16px;
+        height: 85%;
+    }
+
+    .summaryMain {
+        padding: 0;
+    }
+
+    .summaryMain h1 {
+        font-size: 40px;
+    }
+
+    .summaryHead {
+        padding: 0;
+    }
+
+    .summaryTasks {
+        gap: 16px;
+        width: 100%;
+    }
+
+    .summaryWidth span {
+        font-size: 14px;
+    }
+
+    .decoline {
+        margin-top: 16px;
+    }
+
+    .dFlex {
+        gap: 8px;
+    }
+
+    .dFlex img {
+        width: 48px;
+    }
+
+    .sidebar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+    }
+
+    .borderRadius {
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .firstList {
+        display: flex;
+        justify-content: center;
+        width: 184px;
+        height: 88px;
+    }
+
+    .maxWidth {
+        width: 128px;
+    }
+}
+
+@media(min-width:350px) and (max-width:500px) {
+    .firstList {
+        width: 120px;
+    }
+
+    .maxWidth {
+        width: 96px;
+    }
+
+    .greeting-mobile {
+        left: 5% !important;
+    }
+
+    .greeting-mobile h1 {
+        font-size: 38px !important;
+    }
+
+    .greeting-mobile h2 {
+        font-size: 26px !important;
+    }
+}
+
+@media(max-width:350px) {
+    .firstList {
+        width: 104px;
+    }
+
+    .maxWidth {
+        width: 80px;
+    }
+
+    .summaryWidth span {
+        font-size: 12px;
+    }
+
+    .greeting-mobile {
+        left: 5% !important;
+    }
+
+    .greeting-mobile h1 {
+        font-size: 38px !important;
+    }
+
+    .greeting-mobile h2 {
+        font-size: 26px !important;
+    }
+}
+
+@media(max-width:280px) {
+    .firstList {
+        width: 80px;
+    }
+
+    .thirdList {
+        height: 112px;
+    }
+
+    .summaryWidth {
+        gap: 0;
+    }
+
+    .sidebar-sections {
+        height: auto;
+        text-align: center;
+    }
+}
+
+/*Greeting-mobile*/
+
+.greeting-mobile {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    opacity: 0;
+}
+
+.greeting-mobile h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #29ABE2;
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.greeting-mobile h2 {
+    color: #2A3647;
+    font-size: 47px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.fadeOutAnimation {
+    animation: fadeOut 2s linear;
+}
+
+.fadeInAnimation {
+    animation: fadeIn 2s linear;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 0.2;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    95% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    95% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

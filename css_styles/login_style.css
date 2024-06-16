@@ -1,0 +1,649 @@
+body {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.login-content {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 36px 16px 8px 16px;
+    width: 90%;
+    height: 15%;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right p {
+    font-size: 16px;
+}
+
+.sign-up-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 112px;
+    height: 54px;
+    font-size: 18px;
+    margin-left: 40px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #081931;
+    color: white;
+    font-family: 'Inter';
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header img {
+    position: relative;
+    height: 100px;
+}
+
+.form {
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05);
+}
+
+.decoline {
+    width: 128px;
+    height: 2px;
+    background-color: #29ABE2;
+}
+
+.form h1 {
+    font-size: 54px;
+    margin: 0;
+    padding-bottom: 8px;
+    color: #000000;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-style {
+    margin-top: 32px;
+    border-radius: 16px;
+    width: 380px;
+    padding: 4px;
+    padding-left: 16px;
+    height: 36px;
+    border: 2px solid rgba(0, 0, 0, 0.07);
+}
+
+.input-style::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.checkbox {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.checkbox p {
+    margin-top: 14px;
+    margin-left: 12px;
+}
+
+.btns {
+    display: flex;
+    margin-top: 36px;
+    justify-content: space-between;
+    width: 316px;
+}
+
+.login-btn {
+    width: 96px;
+    height: 48px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    background-color: #081931;
+    color: white;
+    font-size: 18px;
+    font-family: 'Inter';
+}
+
+.guest-login-btn {
+    width: 160px;
+    height: 48px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid #2A3647;
+    background-color: white;
+    color: #2A3647;
+    font-size: 18px;
+    font-family: 'Inter';
+}
+
+.login-btn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 0 8px 10px -5px #333;
+}
+
+.guest-login-btn:hover {
+    cursor: pointer;
+    color: #29ABE2;
+    border: 2px solid;
+    border-color: #29ABE2;
+    box-shadow: 0 8px 10px -5px #333;
+}
+
+.sign-up-btn:hover {
+    background-color: #29ABE2;
+    border: none;
+    box-shadow: 0 8px 10px -5px #333;
+}
+
+.email-styling {
+    background: url("../assets/images/mail.svg") no-repeat center;
+    background-size: 24px;
+    background-position-x: 348px;
+}
+
+.pw-styling {
+    background-size: 24px;
+    background-position-x: 348px;
+}
+
+.footer {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.footer a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: lightgray;
+    padding: 24px 24px 0px 24px;
+}
+
+.footer a:hover {
+    font-size: 18px;
+    color: #29ABE2;
+    padding: 24px 17px 0px 18px;
+}
+
+/*Animation*/
+.popup-message {
+    position: relative;
+}
+
+.popup-text {
+    width: 230px;
+    padding: 16px 0 16px 0;
+    color: white;
+    background-color: #081931;
+    text-align: center;
+    border-radius: 12px;
+    padding-top: 16px;
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 50%;
+    margin-left: -115px;
+    user-select: none;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible;
+    animation: example2 4s ease-in;
+}
+
+@keyframes example2 {
+    0% {
+        opacity: 0;
+        top: 5%;
+    }
+
+    25% {
+        opacity: 1;
+        top: 15%;
+    }
+
+    50% {
+        opacity: 1;
+        top: 15%;
+    }
+
+    60% {
+        opacity: 1;
+        top: 15%;
+    }
+
+    80% {
+        opacity: 1;
+        top: 15%;
+    }
+
+    90% {
+        opacity: 1;
+        top: 15%;
+    }
+
+    100% {
+        opacity: 0;
+        top: 5%;
+    }
+}
+
+.fish-eye-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.fish-eye-btn {
+    height: 20px;
+    margin-top: 32px;
+    position: relative;
+    margin-left: -56px;
+    border: none;
+    background-color: white;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fish-eye-btn:hover {
+    cursor: pointer;
+}
+
+
+
+/* Join-Logo Animation */
+
+.join-logo-animation {
+    z-index: 999;
+    animation: joinLogo 1s linear;
+}
+
+@keyframes joinLogo {
+    0% {
+        height: 270px;
+        top: 250%;
+        left: 45%;
+    }
+
+    50% {
+        height: 270px;
+        top: 250%;
+        left: 45%;
+    }
+
+    100% {
+        height: 100px;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+/* From Invis to visible Animation */
+
+.invis-visible-animation {
+
+    animation: invisVis 1s 500ms forwards;
+}
+
+.o0 {
+    opacity: 0;
+}
+
+@keyframes invisVis {
+    0% {
+        opacity: 0;
+    }
+
+    ;
+
+    10% {
+        opacity: 0;
+    }
+
+    ;
+
+    20% {
+        opacity: 0;
+    }
+
+    ;
+
+    30% {
+        opacity: 0;
+    }
+
+    ;
+
+    50% {
+        opacity: 0;
+    }
+
+    ;
+
+    60% {
+        opacity: 0;
+    }
+
+    ;
+
+    70% {
+        opacity: 0;
+    }
+
+    ;
+
+    80% {
+        opacity: 0;
+    }
+
+    ;
+
+    90% {
+        opacity: 0;
+    }
+
+    ;
+
+    95% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+    ;
+}
+
+.mobile-sign-up {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*Responsive Design*/
+@media(max-width:1080px) {
+    .login-btn {
+        width: 80px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .guest-login-btn {
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .checkbox p {
+        font-size: 18px;
+    }
+}
+
+@media(min-height:1300px) and (min-width:900px) {
+    .email-styling {
+        background-position-x: 476px;
+    }
+
+    .input-style {
+        width: 400px;
+    }
+
+    .fish-eye-btn {
+        margin-left: -50px;
+    }
+
+    .btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .btns button {
+        width: 200px;
+        height: 48px;
+    }
+
+    .form {
+        height: 60%;
+        width: 70%;
+        gap: 56px;
+    }
+
+    .checkbox {
+        width: 100%;
+    }
+}
+
+@media(min-height:600px) and (max-height:800px) {
+    .form h1 {
+        margin-top: 16px;
+    }
+
+    .btns {
+        margin-bottom: 8px;
+    }
+
+    .mobile-sign-up {
+        margin-top: 16px;
+    }
+}
+
+@media(min-width:1000px) and (min-height:600px) {
+    .btns {
+        margin: 16px 0 32px 0;
+        gap: 16px;
+    }
+
+    .btns button {
+        width: 200px;
+    }
+}
+
+@media(max-width:1100px) {
+    .form {
+        width: 60%;
+    }
+}
+
+@media(max-width:800px) {
+    .form {
+        width: 90%;
+    }
+
+    .join-logo-animation {
+        animation: joinLogoMobile650 1s linear;
+    }
+}
+
+@media(min-width:500px) {
+    .mobile-sign-up {
+        display: none;
+    }
+}
+
+@media(max-width:500px) {
+    .header-right {
+        display: none;
+    }
+
+    .btns {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 260px;
+        margin-top: 16px;
+    }
+
+    .login-btn {
+        width: 160px;
+        height: 40px;
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+    .guest-login-btn {
+        width: 160px;
+        height: 40px;
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .mobile-sign-up p {
+        font-size: 16px;
+    }
+
+    .sign-up-btn {
+        font-size: 16px;
+        width: 100px;
+        height: 42px;
+    }
+
+    .join-logo-animation {
+        animation: joinLogoMobile450 1s linear;
+    }
+
+    .header img {
+        height: 80px;
+    }
+
+    .form h1 {
+        font-size: 40px;
+    }
+
+    .checkbox p {
+        font-size: 16px;
+    }
+
+    .email-styling {
+        background-position-x: 208px;
+    }
+
+    .input-style {
+        width: 232px;
+    }
+
+    .fish-eye-btn {
+        margin-left: -50px;
+    }
+}
+
+/*Animation Mobile*/
+@keyframes joinLogoMobile650 {
+    0% {
+        height: 190px;
+        top: 250%;
+        left: 40%;
+    }
+
+    50% {
+        height: 190px;
+        top: 250%;
+        left: 40%;
+    }
+
+    100% {
+        height: 100px;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+@keyframes joinLogoMobile450 {
+    0% {
+        height: 190px;
+        top: 250%;
+        left: 30%;
+    }
+
+    50% {
+        height: 190px;
+        top: 250%;
+        left: 30%;
+    }
+
+    100% {
+        height: 64px;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+@media(max-height:670px) {
+    .header {
+        margin: 8px;
+    }
+
+    .header img {
+        height: 64px;
+    }
+
+    .form {
+        margin-top: 24px;
+    }
+
+    .form h1 {
+        font-size: 32px;
+    }
+
+    .decoline {
+        width: 60px;
+    }
+}
+
+@media(max-width:319px) {
+    .input-style {
+        width: 210px;
+    }
+
+    .email-styling {
+        background-position-x: 180px;
+    }
+
+    .fish-eye-div {
+        justify-content: center;
+        margin-left: -22px;
+    }
+
+    .fish-eye-btn {
+        margin-left: -60px;
+    }
+}

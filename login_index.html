@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css_styles/login_style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/join.svg">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="js/classes/user.class.js"></script>
+    <script src="js/remoteStorage.js"></script>
+    <script src="js/userLogin.js"></script>
+    <title>Login</title>
+</head>
+
+<body onload="init()">
+    <section class="login-content">
+            <span id="invalid" class="popup-text">User not found</span>
+            <span id="valid" class="popup-text">Login successfull !</span>
+        <div class="header">
+            <img class="join-logo join-logo-animation" src="assets/images/Join_Logo_Login.svg">
+            <div class="header-right o0 invis-visible-animation">
+                <p>Not a Join user?</p>
+                <a href="registration.html" class="sign-up-btn">Sign up</a>
+            </div>
+        </div>
+        <div class="form o0 invis-visible-animation">
+            <h1>Log in</h1>
+            <div class="decoline"></div>
+            <form class="login-form" onsubmit="login(); return false">
+                <input class="input-style email-styling" id="username" required type="text" placeholder="Email">
+                <div class="fish-eye-div">
+                    <input onkeydown="toggleFishEye()" class="input-style pw-styling" id="password" required type="password"
+                        placeholder="Password">
+                        <button onclick="togglePasswordVisibility('password')" type="button" id="fishBtn" class="fish-eye-btn"><img id="fishBtnImg" src="assets/images/lock.svg"></button>
+                </div><br>
+                <div class="checkbox">
+                    <input type="checkbox" name="remember-me" id="rememberMe">
+                    <p>Remember me</p>
+                </div>
+                <div class="btns">
+                    <button class="login-btn">Log in</button>
+                    <button type="button" onclick="guestLogin()" class="guest-login-btn">Guest Log in</button>
+                </div>
+            </form>
+        </div>
+        <div class="mobile-sign-up o0 invis-visible-animation">
+            <p>Not a Join user?</p>
+            <a href="registration.html" class="sign-up-btn">Sign up</a>
+        </div>
+        <div class="footer o0 invis-visible-animation">
+            <a href="plainPolicy.html">Privacy Policy</a>
+            <a href="plainLNotice.html">Legal notice</a>
+        </div>
+    </section>
+</body>
+
+</html>

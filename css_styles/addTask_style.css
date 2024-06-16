@@ -1,0 +1,749 @@
+.addTaskMain {
+    display: flex;
+    align-items: center;
+    background-color: #f6f7f8;
+    padding-left: 25%;
+}
+
+.dNone {
+    display: none !important;
+}
+
+.separator {
+    width: 0.5px;
+    height: 416px;
+    background-color: #D1D1D1;
+    margin: 0 40px;
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.form {
+    height: 90%;
+    color: #2A3647;
+    margin-bottom: 88px;
+}
+
+.formColumnsContainer {
+    display: flex;
+    gap: 16px;
+}
+
+input,
+select,
+textarea {
+    font-size: 20px;
+    font-family: 'Inter';
+    padding: 8px 16px;
+    border: solid 1px #DBDBDB;
+    border-radius: 8px;
+    width: 440px;
+    min-width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+}
+
+textarea {
+    height: 104px;
+    resize: none;
+    background-image: url(../assets/images/textarea_resize.svg);
+    background-repeat: no-repeat;
+    background-position: right 4px bottom 4px;
+}
+
+input:focus {
+    border-color: #29ABE2;
+}
+
+select {
+    appearance: none;
+}
+
+select:hover {
+    border-color: #A8A8A8;
+}
+
+select:focus {
+    border-color: #29ABE2;
+}
+
+textarea:focus {
+    border-color: #29ABE2;
+}
+
+::placeholder {
+    color: #D1D1D1;
+}
+
+/* Input Symbols */
+.inputSymbol {
+    position: absolute;
+    cursor: pointer;
+    overflow: visible;
+    border-radius: 50%;
+}
+
+.arrowSymbol {
+    top: 43px;
+    right: 12px;
+    padding: 8px;
+}
+
+.arrowSymbol:hover {
+    background-color: #EAEBEC;
+}
+
+/* ASSIGNED TO */
+.contactSelectionContainer {
+    position: relative;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.contactSelection {
+    height: 152px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.contactAddTask {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+.contactAddTask:hover {
+    cursor: pointer;
+    background-color: #EAEBEC;
+}
+
+.contactInfoContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.addContactBtnContainer {
+    padding: 0 16px 16px 16px;
+}
+
+.addContactBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    background-color: #081931;
+    color: white;
+    font-weight: 800;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.addContactBtn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    color: white;
+    border: none;
+    box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.4);
+}
+
+.checkbox {
+    position: absolute;
+    right: -184px;
+}
+
+.contactBubbleAddTask {
+    margin-left: 16px;
+}
+
+.assignContactsInputfield::placeholder {
+    color: black;
+}
+
+/* selected contacts */
+.assignedContacts {
+    display: flex;
+    position: absolute;
+}
+
+.selectedContactBubble {
+    margin: 4px 8px 0 0;
+}
+
+/* SUBTASKS */
+.subtaskContainer {
+    display: block;
+    position: absolute;
+    width: 440px;
+    height: 144px;
+    z-index: 100;
+    top: 80px;
+    overflow: auto;
+}
+
+.subtasksAddSymbol {
+    right: 12px;
+    top: 42px;
+    padding: 4px;
+}
+
+.subtasksAddSymbol:hover {
+    background-color: #EAEBEC;
+}
+
+/* added subtasks */
+.ulContainer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 4px 12px 4px 16px;
+}
+
+.ulContainer:hover {
+    cursor: pointer;
+    background-color: #EAEBEC;
+    transition: 200ms;
+}
+
+.subtaskListElements {
+    margin-left: 16px;
+}
+
+.subtaskEditContainer {
+    display: flex;
+}
+
+.subtaskEditContainer img {
+    width: 20px;
+}
+
+.subtaskSeparator {
+    width: 0.5px;
+    background-color: #D1D1D1;
+    margin: 0 4px 0 4px;
+}
+
+/* prios */
+.prioCategoriesContainer {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+
+.prioCategory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: white;
+    border: solid 1px #EAEBEC;
+    border-radius: 8px;
+    gap: 8px;
+    width: 136px;
+    color: black;
+    font-size: 20px;
+}
+
+.prioCategory:hover {
+    box-shadow: 0px 5px 4px 0px #BCBDBE;
+    cursor: pointer;
+}
+
+.marginBo8 {
+    margin-bottom: 8px;
+}
+
+.required:after {
+    content: "*";
+    color: #FF8190;
+}
+
+/* CATEGORY */
+.categorySelection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: black;
+}
+
+.categorySelection span {
+    padding: 8px 16px;
+}
+
+.categorySelection span:hover {
+    cursor: pointer;
+    background-color: #EAEBEC;
+    border-radius: 8px;
+}
+
+#categoryInputField::placeholder {
+    color: black;
+}
+
+/* FOOTER */
+.footerRequiredField {
+    display: flex;
+    align-items: flex-end;
+    font-size: 16px;
+}
+
+.footerRequiredField:before {
+    font-size: 20px;
+    content: "*";
+    color: #FF8190;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 136px;
+}
+
+.footerBtnContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.addTaskBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 14px;
+    border: solid 1px #2A3647;
+    border-radius: 12px;
+    gap: 8px;
+    font-size: 20px;
+    font-family: 'Inter';
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
+.addTaskBtn:hover {
+    box-shadow: 0px 5px 4px 0px #BCBDBE;
+}
+
+.clearBtn {
+    background-color: transparent;
+    color: #2A3647;
+}
+
+.clearBtn:hover {
+    color: #29ABE2;
+    border-color: #29ABE2;
+    transition: 200ms;
+}
+
+.clearBtn svg path {
+    stroke: #2A3647;
+}
+
+.clearBtn:hover svg path {
+    stroke: #29ABE2;
+    transition: 200ms;
+}
+
+.createBtn {
+    background-color: #2A3647;
+    color: white;
+    font-weight: 600;
+}
+
+.createBtn:hover {
+    background-color: #29ABE2 !important;
+    border-color: #29ABE2;
+    transition: 200ms;
+}
+
+.colorBlack {
+    color: black;
+}
+
+/* onclick */
+.urgent {
+    background-color: #FF3D00;
+    color: white;
+    box-shadow: none !important;
+    font-weight: bold;
+}
+
+.medium {
+    background-color: #FFA800;
+    color: white;
+    box-shadow: none !important;
+    font-weight: bold;
+}
+
+.low {
+    background-color: #7AE229;
+    color: white;
+    box-shadow: none !important;
+    font-weight: bold;
+}
+
+.boardCloseBtn button {
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    min-height: 100vh;
+    height: 100%;
+    width: 20%;
+}
+
+.main-content {
+    min-width: 100%;
+    width: 100%;
+}
+
+.kanban-title {
+    padding-left: 40%;
+}
+
+/* BOARD */
+.newTask {
+    height: 200px;
+    border-top-right-radius: 8px;
+}
+
+/* ADD CONTACTS */
+.back-button {
+    display: flex;
+}
+
+
+/*Responsive Design*/
+@media(min-width:1400px) {
+    .back-button img {
+        margin-left: 48px !important;
+    }
+}
+
+@media(max-width: 1350px) {
+    .addTaskMain {
+        justify-content: center;
+    }
+
+    .formColumnsContainer {
+        flex-direction: column;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 624px
+    }
+
+    .subtaskContainer {
+        position: initial;
+        width: 100%;
+        height: auto;
+    }
+
+    .footerContainer {
+        margin-top: 24px;
+        padding: 0 16px 16px 16px;
+    }
+}
+
+@media(max-width:1024px) {
+    .sidebar {
+        bottom: 0;
+        left: 0;
+        min-height: auto;
+        height: auto;
+        width: 100%;
+    }
+
+    .addTaskMain {
+        padding-left: 0% !important;
+    }
+}
+
+@media(max-width: 700px) {
+    .addTaskOverflowHidden {
+        overflow: hidden;
+    }
+
+    .addTaskMediaQueryWidth {
+        width: 100%;
+    }
+
+    .addTaskMediaQueryH1 {
+        position: fixed;
+        font-size: 48px;
+        left: 16px;
+    }
+
+    .addTaskMain {
+        padding: 0;
+    }
+
+    .formColumnsContainer {
+        flex-direction: column;
+        padding: 0 16px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    .form {
+        position: absolute;
+        top: 228px;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .footerContainer {
+        margin-bottom: 200px;
+    }
+
+    .footerRequiredField {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    .form {
+        font-size: 16px;
+    }
+
+    .prioCategoriesContainer {
+        gap: 8px;
+    }
+
+    .prioCategoriesContainer img {
+        width: 18px;
+    }
+
+    .prioCategory {
+        padding: 8px 16px;
+        width: 85px;
+        font-size: 15px;
+    }
+
+    .arrowSymbol {
+        top: 36px;
+    }
+
+    .subtasksAddSymbol {
+        top: 36px;
+    }
+
+    .addTaskBtn {
+        font-size: 16px;
+        padding: 4px;
+        gap: 4px;
+    }
+
+    .clearBtn {
+        display: none;
+    }
+
+    .footerRequiredField {
+        font-size: 12px;
+    }
+
+    .checkbox {
+        right: -112px;
+    }
+}
+
+
+/* responsive design for addContactForm */
+@media(min-width:1024px) {
+    .back-button {
+        margin-left: 0 !important;
+    }
+}
+
+@media(min-width:850px) {
+    #fullName {
+        min-width: 0;
+    }
+
+    #mail {
+        min-width: 0;
+    }
+
+    #phone {
+        min-width: 0;
+    }
+
+    .formular {
+        margin-right: 85px;
+    }
+
+    .back-button img {
+        margin-left: 80px;
+    }
+}
+
+@media(max-width:850px) {
+    .back-button {
+        margin-bottom: 0;
+    }
+}
+
+@media(min-width:500px) {
+    /* #fullName {
+        min-width: 0;
+    }
+
+    #mail {
+        min-width: 0;
+    }
+
+    #phone {
+        min-width: 0;
+    } */
+
+    .person-icon {
+        background-position-x: 264px !important;
+    }
+
+    .mail-icon {
+        background-position-x: 264px !important;
+    }
+
+    .phone-icon {
+        background-position-x: 264px !important;
+    }
+
+    .info-popup {
+        width: 0;
+    }
+
+    .info-popup {
+        height: 0;
+    }
+
+    .back-button {
+        margin-top: 0;
+        margin-left: 88px;
+    }
+}
+
+@media(min-width:360px) and (max-width:500px) {
+    .person-icon {
+        background-position-x: 176px !important;
+    }
+
+    .mail-icon {
+        background-position-x: 176px !important;
+    }
+
+    .phone-icon {
+        background-position-x: 176px !important;
+    }
+
+    .info-popup {
+        height: 0;
+    }
+
+    .back-button img {
+        margin-top: 0;
+        margin-left: 56px;
+    }
+}
+
+@media(max-width:290px) {
+    .back-button {
+        margin-top: 0;
+    }
+
+    .person-icon {
+        background-position-x: 136px !important;
+    }
+
+    .mail-icon {
+        background-position-x: 136px !important;
+    }
+
+    .phone-icon {
+        background-position-x: 136px !important;
+    }
+}
+
+@media(min-width:320px) and (max-width:360px) {
+    .person-icon {
+        background-position-x: 144px !important;
+    }
+
+    .mail-icon {
+        background-position-x: 144px !important;
+    }
+
+    .phone-icon {
+        background-position-x: 144px !important;
+    }
+
+    .back-button img {
+        margin-left: 48px;
+    }
+
+    .info-popup {
+        height: 0;
+    }
+
+    .back-button {
+        margin-top: 0;
+    }
+}
+
+/* responsive design MOBILE for addContactForm */
+
+@media(min-height:1360px) and (max-height:1370px) {
+    .formular {
+        margin-top: 0 !important;
+    }
+}
+
+@media(width:1024px) and (height:1366px) {
+    .formular {
+        margin-right: 0;
+    }
+}
+
+@media(min-width:1024px) and (max-height:800px) {
+    .formular {
+        margin-right: 0;
+        margin-top: -32px;
+    }
+}
