@@ -44,10 +44,18 @@ function deactivateAllActiveSections() {
  *
  * @param {string} loadedContentKey - The key used to retrieve the user data from local storage.
  */
-function loadLocalStorageLoggedInUser(loadedContentKey) {
+function loadLocalStorageLoggedInUser2(loadedContentKey) {
     if (localStorage.getItem(loadedContentKey)) {
         let loadedContentAsString = localStorage.getItem(loadedContentKey);
         logInUser = JSON.parse(loadedContentAsString);
+    }
+}
+
+async function loadLocalStorageLoggedInUser() {
+    if (localStorage.getItem('currentUser')) {
+        let loadedContentAsString = localStorage.getItem('currentUser');
+        logInUser = JSON.parse(loadedContentAsString);
+        console.log(logInUser)
     }
 }
 
@@ -59,7 +67,7 @@ function loadLocalStorageLoggedInUser(loadedContentKey) {
 function setHeaderInitials(logInUser) {
     let userInitialsCont = document.getElementById('loggedUserInitials');
     if (logInUser) {
-        let initials = logInUser.firstName.charAt(0) + logInUser.lastName.charAt(0);
+        let initials = logInUser.first_name.charAt(0) + logInUser.last_name.charAt(0);
         userInitialsCont.innerHTML = /*html*/`
         <div class="icon-styling">${initials}</div>
     `

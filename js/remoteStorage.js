@@ -1,6 +1,8 @@
 const STORAGE_TOKEN = "4IQMVEDAS02VQ4EJLUVFCEPW7G87BF8LMGK1KYF7";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
+const BACKEND_URL = "http://127.0.0.1:8000/api/"
+
 /**
  * Sets and saves an item in the remote storage using a key-value pair.
  *
@@ -48,8 +50,10 @@ async function fetchContacts2() {
 }
 
 async function fetchContacts() {
-  const TASK_URL = "http://127.0.0.1:8000/contacts/";
-  await fetch(TASK_URL, { method: "GET", redirect: "follow" })
+  token = await localStorage.getItem('token')
+  const headers = new Headers();
+  headers.append("Authorization", `Token ${token}`)
+  await fetch(`${BACKEND_URL}contacts/`, { method: "GET", headers: headers, redirect: "follow" })
     .then((response) => response.text())
     .then((result) => (contacts = JSON.parse(result)))
     .then(() => console.log(contacts))
@@ -57,9 +61,11 @@ async function fetchContacts() {
 }
 
 
-async function setContact(contact, url) {
+async function setContact(contact) {
+  token = await localStorage.getItem('token')
   const headers = new Headers();
-  headers.append("Content-Type", "application/json")
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", `Token ${token}`)
   const raw = JSON.stringify(contact)
   const requestOptions = {
       method: "POST",
@@ -68,10 +74,39 @@ async function setContact(contact, url) {
       redirect: "follow"
   };
   try {
-      fetch(url, requestOptions)
+      await fetch(BACKEND_URL + "contacts/", requestOptions)
   } catch (error) {
       console.log(error)
   } 
+}
+
+async function updateContact(contact, URL) {
+  token = await localStorage.getItem('token')
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Token ${token}`)
+    const raw = JSON.stringify(contact);
+    const requestOptions = {
+        method: "PUT",
+        headers: headers,
+        body: raw,
+        redirect: "follow"
+    };
+    try {
+        fetch(URL, requestOptions)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function delContact(contactURL) {
+  token = await localStorage.getItem('token')
+  const headers = new Headers();
+  headers.append("Authorization", `Token ${token}`)
+  fetch(contactURL, {method: "DELETE", headers: headers, redirect: "follow"})
+    .then((response) => response.text())
+    .then(() => init('contactsSection'))
+    .catch((error) => console.error(error));
 }
 
 /**
@@ -86,21 +121,40 @@ async function fetchUsers() {
   }
 }
 
+async function createUser(user) {
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  const raw = JSON.stringify(user);
+  const requestOptions = {
+    method: "POST",
+    headers: headers,
+    body: raw,
+    redirect: "follow"
+};
+try {
+  fetch(BACKEND_URL + "users/register/", requestOptions)
+} catch (error) {
+  consolelog(error)
+}
+}
+
 /**
  * Fetches and loads task data from remote storage into the 'tasks' variable.
  * If the data does not exist, it handles and logs an error.
  */
-async function fetchTasks2() {
-  try {
-    tasks = JSON.parse(await getItem("tasks"));
-  } catch (e) {
-    console.error("Loading error:", e);
-  }
-}
+// async function fetchTasks2() {
+//   try {
+//     tasks = JSON.parse(await getItem("tasks"));
+//   } catch (e) {
+//     console.error("Loading error:", e);
+//   }
+// }
 
 async function fetchTasks() {
-  const TASK_URL = "http://127.0.0.1:8000/tasks/";
-  await fetch(TASK_URL, { method: "GET", redirect: "follow" })
+  token = await localStorage.getItem('token')
+  const headers = new Headers();
+  headers.append("Authorization", `Token ${token}`)
+  await fetch(BACKEND_URL + "tasks/", { method: "GET", headers: headers, redirect: "follow" })
     .then((response) => response.text())
     .then((result) => (tasks = JSON.parse(result)))
     .then(() => console.log(tasks))
@@ -109,7 +163,60 @@ async function fetchTasks() {
 
 
 
+async function setTask(task) {
+    token = await localStorage.getItem('token')
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Token ${token}`)
+    const raw = JSON.stringify(task)
+    const requestOptions = {
+        method: "POST",
+        headers: headers,
+        body: raw,
+        redirect: "follow"
+    };
+    try {
+        fetch(BACKEND_URL + "tasks/", requestOptions)
+    } catch (error) {
+        console.log(error)
+    } 
+}
 
+async function updateTask(task, URL) {
+  token = await localStorage.getItem('token')
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Token ${token}`)
+    const raw = JSON.stringify(task);
+    const requestOptions = {
+        method: "PUT",
+        headers: headers,
+        body: raw,
+        redirect: "follow"
+    };
+    try {
+        fetch(URL, requestOptions)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function delTask(taskIndex) {
+  let taskURL
+  token = await localStorage.getItem('token')
+  const headers = new Headers();
+  headers.append("Authorization", `Token ${token}`)
+  tasks.forEach(task => {
+      if (task.uniqueIndex == taskIndex) {
+          taskURL = task.url
+      }
+  });
+  console.log(taskURL)
+  fetch(taskURL, {method: "DELETE", headers: headers, redirect: "follow"})
+    .then((response) => response.text())
+    .then(() => initBoard('board'), closeTask())
+    .catch((error) => console.error(error));
+}
 
 
 // DELETE CONTENT

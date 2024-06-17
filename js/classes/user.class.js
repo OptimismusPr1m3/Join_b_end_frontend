@@ -2,9 +2,10 @@
  * Represents a user with basic information
  */
 class User {
-    firstName;
-    lastName;
-    mail;
+    first_name;
+    last_name;
+    username;
+    email;
     password;
 
     /**
@@ -16,9 +17,10 @@ class User {
      * @param {string} password - The user's password. 
      */
     constructor(firstName, lastName, mail, password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mail = mail;
+        this.first_name = firstName;
+        this.last_name = lastName;
+        this.email = mail;
         this.password = password;
+        this.username = this.first_name
     }
 }

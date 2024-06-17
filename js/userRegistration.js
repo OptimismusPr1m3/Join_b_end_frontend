@@ -53,10 +53,12 @@ function checkEmail() {
  */
 async function registration() {
     let firstLastName = splitString(fullName.value);
-    users.push(new User(firstLastName[0], firstLastName[1], email.value, password.value));
-    contacts.push(new Contact(firstLastName[0], firstLastName[1], "", email.value));
-    await setItem('users', JSON.stringify(users));
-    await setItem('contacts', JSON.stringify(contacts));
+    newUser = new User(firstLastName[0], firstLastName[1], email.value, password.value);
+    newContact = new Contact(firstLastName[0], firstLastName[1], "", email.value);
+    //await setContact(newContact);
+    await createUser(newUser);
+    // await setItem('users', JSON.stringify(users));
+    // await setItem('contacts', JSON.stringify(contacts));
     animatePopup();
 }
 

@@ -355,7 +355,8 @@ async function overwriteContact(firstLastName, mail, tel, contact) {
     contact.last_name = firstLastName[1];
     contact.mail = mail;
     contact.phone = tel;
-    await setItem('contacts', JSON.stringify(contacts));
+    await updateContact(contact, contact.url)
+    // await setItem('contacts', JSON.stringify(contacts));
 }
 
 /**
@@ -390,7 +391,6 @@ async function createContact() {
     }
 }
 
-CONTACT_URL = 'http://127.0.0.1:8000/contacts/'
 /**
  * Asynchronously creates a new contact, updates the contacts list, and performs additional UI actions.
  * 
@@ -400,7 +400,7 @@ async function createContactAtContact() {
     document.querySelector(".info-popup").classList.add('info-popup-animation');
     let firstLastName = splitString(fullName.value);
     contactNew = new Contact(firstLastName[0], firstLastName[1], phone.value, mail.value);
-    setContact(contactNew, CONTACT_URL)
+    setContact(contactNew)
     //await setItem('contacts', JSON.stringify(contacts));
     resetForms();
     closeAddC();
@@ -455,11 +455,11 @@ function removeAllActiveStates() {
  */
 async function deleteContact(index) {
     removeAllActiveStates()
-    contacts.splice(index, 1);
     infoHead.innerHTML = '';
     contactInformation.innerHTML = '';
-    await setItem('contacts', JSON.stringify(contacts));
-    init('contactsSection');
+    delContact(contacts[index].url)
+    // //await setItem('contacts', JSON.stringify(contacts));
+    // init('contactsSection');
 }
 
 /**

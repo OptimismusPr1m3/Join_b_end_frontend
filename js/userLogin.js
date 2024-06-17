@@ -45,7 +45,7 @@ function login() {
     headers.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-        "username": username.value,
+        "email": email.value,
         "password": password.value
     });
 
@@ -57,6 +57,8 @@ function login() {
     };
 
     fetch(LOGIN_URL, requestOptions).then(res => res.json()).then(res => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('currentUser', JSON.stringify(res))
         if (res) {
             window.location.href = 'summary.html'
         } 

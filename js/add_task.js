@@ -302,43 +302,7 @@ async function addTaskToBoard(priority) {
     saveBoardStateLocal(null);
 }
 
-const TASK_URL = "http://127.0.0.1:8000/tasks/"
 
-async function setTask(task) {
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json")
-    const TASK_URL = "http://127.0.0.1:8000/tasks/"
-
-    const raw = JSON.stringify(task)
-    const requestOptions = {
-        method: "POST",
-        headers: headers,
-        body: raw,
-        redirect: "follow"
-    };
-    try {
-        fetch(TASK_URL, requestOptions)
-    } catch (error) {
-        console.log(error)
-    } 
-}
-
-async function updateTask(task, URL) {
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json")
-    const raw = JSON.stringify(task);
-    const requestOptions = {
-        method: "PUT",
-        headers: headers,
-        body: raw,
-        redirect: "follow"
-    };
-    try {
-        fetch(URL, requestOptions)
-    } catch (error) {
-        console.log(error)
-    }
-}
 
 
 /**
@@ -381,8 +345,9 @@ function openContactFormETask() {
  */
 async function createContactAtTask(){
     let firstLastName = splitString(fullName.value);
-    contacts.push(new Contact(firstLastName[0], firstLastName[1], phone.value, mail.value));
-    await setItem('contacts', JSON.stringify(contacts));
+    newContact = new Contact(firstLastName[0], firstLastName[1], phone.value, mail.value);
+    await setContact(newContact)
+    // await setItem('contacts', JSON.stringify(contacts));
     await fetchContacts();
     closeAddCATask();
     assignContact();

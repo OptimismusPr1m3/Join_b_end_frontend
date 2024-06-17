@@ -27,16 +27,16 @@ function openEditTaskPopup(taskId) {
  *
  * @param {string} taskId - The unique identifier of the task to be deleted.
  */
-function deleteTask(taskId) {
-    const taskIndex = tasks.findIndex(task => task.uniqueIndex === taskId);
+// function deleteTask(taskId) {
+//     const taskIndex = tasks.findIndex(task => task.uniqueIndex === taskId);
 
-    if (taskIndex !== -1) {
-        tasks.splice(taskIndex, 1);
-        setItem('tasks', JSON.stringify(tasks));
-        closeTask();
-        initBoard('board');
-    }
-}
+//     if (taskIndex !== -1) {
+//         tasks.splice(taskIndex, 1);
+//         setItem('tasks', JSON.stringify(tasks));
+//         closeTask();
+//         initBoard('board');
+//     }
+// }
 
 /**
  * Sets up the edit form with details of the selected task.

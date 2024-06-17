@@ -12,7 +12,7 @@ let months = [
  * @param {string} activeSection - The ID of the section that should be marked as active.
  */
 async function init(activeSection) {
-    loadLocalStorageLoggedInUser('loggedInUser');
+    await loadLocalStorageLoggedInUser();
     await includeHTML();
     markActiveSection(activeSection);
     greet();
@@ -53,7 +53,7 @@ function setUserNameAndMessage(content, greetingMessage) {
     if (logInUser) {
         content.innerHTML = `
         <h2>${greetingMessage},</h2>
-        <h1>${logInUser.firstName} ${logInUser.lastName}</h1>`
+        <h1>${logInUser.first_name} ${logInUser.last_name}</h1>`
     } else {
         content.innerHTML = `
         <h2>${greetingMessage}</h2>`

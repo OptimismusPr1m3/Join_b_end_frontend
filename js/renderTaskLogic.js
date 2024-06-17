@@ -200,21 +200,6 @@ function renderBigTaskHead(task) {
     `
 }
 
-
-function delTask(taskIndex) {
-    let taskURL
-    tasks.forEach(task => {
-        if (task.uniqueIndex == taskIndex) {
-            taskURL = task.url
-        }
-    });
-    console.log(taskURL)
-    fetch(taskURL, {method: "DELETE", redirect: "follow"})
-      .then((response) => response.text())
-      .then(() => initBoard('board'), closeTask())
-      .catch((error) => console.error(error));
-  }
-
 /**
  * Generates HTML template for a delete button with hover effects.
  *

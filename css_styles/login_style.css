@@ -117,7 +117,7 @@ body {
 .btns {
     display: flex;
     margin-top: 36px;
-    justify-content: space-between;
+    justify-content: center;
     width: 316px;
 }
 
