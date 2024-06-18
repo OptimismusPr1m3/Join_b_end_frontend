@@ -21,6 +21,6 @@ class User {
         this.last_name = lastName;
         this.email = mail;
         this.password = password;
-        this.username = this.first_name
+        this.username = this.first_name + this.last_name
     }
 }

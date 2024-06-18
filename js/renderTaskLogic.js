@@ -14,8 +14,8 @@ function classifyTask() {
 
 async function createContactAtBoard(){
     let firstLastName = splitString(fullName.value);
-    contacts.push(new Contact(firstLastName[0], firstLastName[1], phone.value, mail.value));
-    await setItem('contacts', JSON.stringify(contacts));
+    newContact = new Contact(firstLastName[0], firstLastName[1], phone.value, mail.value);
+    await setContact(newContact)
     await fetchContacts();
     closeCBoard();
     assignContact();

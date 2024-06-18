@@ -1,7 +1,7 @@
 let users = [];
 let loginUser;
 let rememberedUser = 0;
-const LOGIN_URL = "http://127.0.0.1:8000/login/"
+const LOGIN_URL = "http://127.0.0.1:8000/login/";
 
 /**
  * Initializes the login-section by performing various tasks in a specified order.
@@ -9,9 +9,9 @@ const LOGIN_URL = "http://127.0.0.1:8000/login/"
  *
  */
 async function init() {
-    await fetchUsers();
-    loadRememberState();
-    checkIfRemembered();
+  await fetchUsers();
+  loadRememberState();
+  checkIfRemembered();
 }
 
 /**
@@ -40,128 +40,141 @@ async function init() {
 //     }
 // }
 
-function login() {
+async function login() {
+    let token
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
-
     const raw = JSON.stringify({
-        "email": email.value,
-        "password": password.value
+      email: email.value,
+      password: password.value,
     });
 
     const requestOptions = {
-        method: "POST",
-        headers: headers,
-        body: raw,
-        redirect: "follow"
+      method: "POST",
+      headers: headers,
+      body: raw,
+      redirect: "follow",
     };
 
-    fetch(LOGIN_URL, requestOptions).then(res => res.json()).then(res => {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('currentUser', JSON.stringify(res))
-        if (res) {
-            window.location.href = 'summary.html'
-        } 
-    })
-
+    await fetch(LOGIN_URL, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        token = res.token
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("currentUser", JSON.stringify(res));
+      });
+  if (token) {
+    let popup = document.getElementById("valid");
+    popup.classList.add("show");
+    setTimeout(() => {
+      window.location.href = "summary.html?msg=Login_successfull";
+    }, 2200);
+  } else {
+    let popup = document.getElementById("invalid");
+    popup.classList.add("show");
+    setTimeout(() => {
+      location.reload();
+    }, 2200);
+  }
 }
-
 
 /**
  * Checks if a remembered user exists and fills the email and password fields if found.
  */
 function checkIfRemembered() {
-    if (rememberedUser) {
-        email.value = rememberedUser[0]['mail'];
-        password.value = rememberedUser[0]['password'];
-    }
+  if (rememberedUser) {
+    email.value = rememberedUser[0]["mail"];
+    password.value = rememberedUser[0]["password"];
+  }
 }
 
 /**
  * Sets the remember-me state by saving user data if the remember-me checkbox is checked.
  */
 function setRememberMe() {
-    let rememberMe = document.getElementById('rememberMe');
-    if (rememberMe.checked) {
-        rememberedUser = [{
-            mail: email.value,
-            password: password.value
-        }];
-        saveRememberState();
-    }
+  let rememberMe = document.getElementById("rememberMe");
+  if (rememberMe.checked) {
+    rememberedUser = [
+      {
+        mail: email.value,
+        password: password.value,
+      },
+    ];
+    saveRememberState();
+  }
 }
 
 /**
  * Saves the remember-me state by storing user data in local storage as a JSON string.
  */
 function saveRememberState() {
-    let rememberAsJSON = JSON.stringify(rememberedUser);
-    localStorage.setItem('rememberedUser', rememberAsJSON)
+  let rememberAsJSON = JSON.stringify(rememberedUser);
+  localStorage.setItem("rememberedUser", rememberAsJSON);
 }
 
 /**
  * Loads the remember-me state by retrieving user data from local storage.
  */
 function loadRememberState() {
-    if (localStorage.getItem('rememberedUser')) {
-        let rememberAsString = localStorage.getItem('rememberedUser');
-        rememberedUser = JSON.parse(rememberAsString);
-    }
+  if (localStorage.getItem("rememberedUser")) {
+    let rememberAsString = localStorage.getItem("rememberedUser");
+    rememberedUser = JSON.parse(rememberAsString);
+  }
 }
 
 /**
  * Proceeds to the summary with the guest status.
  */
 function guestLogin() {
-    window.location.href = 'summary.html?msg=Login_Guest';
+  window.location.href = "summary.html?msg=Login_Guest";
 }
 
 /**
  * Resets the email and phone number values
  */
 function resetValues() {
-    email.value = '';
-    password.value = '';
+  email.value = "";
+  password.value = "";
 }
 
 /**
  * Saves the login data from the user in the localstorage
  */
 function saveLoggedInUser() {
-    let loggedInUserAsJSON = JSON.stringify(loginUser);
-    localStorage.setItem('loggedInUser', loggedInUserAsJSON);
+  let loggedInUserAsJSON = JSON.stringify(loginUser);
+  localStorage.setItem("loggedInUser", loggedInUserAsJSON);
 }
 
 /**
  * Toggles the visibility of the password as a plain text by changing the input field's style and the fish-eye button's appearance.
  */
 function toggleFishEye() {
-    let pwInput = document.getElementById("password");
-    let fishBtn = document.getElementById('fishBtn');
-    let fishBtnImg = document.getElementById("fishBtnImg");
-    const querie = window.matchMedia("(max-width: 319px)")
-    let count = pwInput.value;
-    if (count.length >= 1 && !querie.matches) {
-        toggleFishEyes("32px 0 0 -71px", pwInput, fishBtnImg, fishBtn);
-    } else if (count.length >= 1 && querie.matches) {
-        toggleFishEyes("32px -12px 0 -71px", pwInput, fishBtnImg, fishBtn)
-    } else {
-        fishBtnImg.src = "assets/images/lock.svg"
-    }
+  let pwInput = document.getElementById("password");
+  let fishBtn = document.getElementById("fishBtn");
+  let fishBtnImg = document.getElementById("fishBtnImg");
+  const querie = window.matchMedia("(max-width: 319px)");
+  let count = pwInput.value;
+  if (count.length >= 1 && !querie.matches) {
+    toggleFishEyes("32px 0 0 -71px", pwInput, fishBtnImg, fishBtn);
+  } else if (count.length >= 1 && querie.matches) {
+    toggleFishEyes("32px -12px 0 -71px", pwInput, fishBtnImg, fishBtn);
+  } else {
+    fishBtnImg.src = "assets/images/lock.svg";
+  }
 }
 
 /**
  * Toggle the appearance of fish eyes by updating styles.
- * 
+ *
  * @param {string} style - The margin style to be applied to the fish button.
  * @param {HTMLElement} pwInput - The password input element.
  * @param {HTMLElement} fishBtnImg - The image element representing the fish button.
  * @param {HTMLElement} fishBtn - The fish button element.
  */
 function toggleFishEyes(style, pwInput, fishBtnImg, fishBtn) {
-    pwInput.style.background = "none";
-    fishBtnImg.src = "./assets/images/fish_Eye_closed2.svg"
-    fishBtn.style.margin = style
+  pwInput.style.background = "none";
+  fishBtnImg.src = "./assets/images/fish_Eye_closed2.svg";
+  fishBtn.style.margin = style;
 }
 
 /**
@@ -171,14 +184,13 @@ function toggleFishEyes(style, pwInput, fishBtnImg, fishBtn) {
  * @param {string} id - The ID of the password input field to toggle visibility for.
  */
 function togglePasswordVisibility(id) {
-    let fishBtnImg = document.getElementById("fishBtnImg");
-    let pwInput = document.getElementById(id);
-    if (pwInput.type === "password") {
-        pwInput.type = "text";
-        fishBtnImg.src = "assets/images/fish_Eye_open.svg"
-    } else {
-        pwInput.type = "password";
-        fishBtnImg.src = "assets/images/fish_Eye_closed2.svg"
-
-    }
+  let fishBtnImg = document.getElementById("fishBtnImg");
+  let pwInput = document.getElementById(id);
+  if (pwInput.type === "password") {
+    pwInput.type = "text";
+    fishBtnImg.src = "assets/images/fish_Eye_open.svg";
+  } else {
+    pwInput.type = "password";
+    fishBtnImg.src = "assets/images/fish_Eye_closed2.svg";
+  }
 }

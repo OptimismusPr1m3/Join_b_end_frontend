@@ -4,6 +4,7 @@
  * @param {string} taskId - The unique identifier of the task to be edited.
  */
 function openEditTaskPopup(taskId) {
+    debugger
     document.getElementById('addTaskHeading').innerText = 'Edit Task'
     let selectedTask = tasks.find(task => task.uniqueIndex == taskId);
     if (selectedTask.subtasks) {
@@ -118,7 +119,7 @@ function showAlreadyAssContactsEdit(selectedTaskContacts) {
         const contactCheckbox = document.getElementById(`checkbox${i}`)
         for (let j = 0; j < selectedTaskContacts.length; j++) {
             const sAssContact = selectedTaskContacts[j];
-            if (contact.first_name == sAssContact.first_name && contact.last_name == sAssContact.last_name) {
+            if (contact.first_name == sAssContact.firstName && contact.last_name == sAssContact.lastName) {
                 contactCheckbox.checked = true;
                 assignedContacts.innerHTML += assignedContactsTemplateEdit(contact.color);
             }

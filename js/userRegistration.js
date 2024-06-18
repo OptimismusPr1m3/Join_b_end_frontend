@@ -7,7 +7,7 @@ let contacts = [];
  */
 async function init() {
     await fetchUsers();
-    await fetchContacts();
+    //await fetchContacts();
 }
 
 /**
@@ -27,7 +27,7 @@ function checkPasswords() {
  * Checks if the entered full name is already taken by a user and sets a custom validation message.
  */
 function checkFullName() {
-    let user = users.find(user => user.firstName + ' ' + user.lastName == fullName.value);
+    let user = users.find(user => user.first_name + ' ' + user.last_name == fullName.value);
     if (user) {
         fullName.setCustomValidity("Username already taken!");
     } else {
@@ -39,7 +39,7 @@ function checkFullName() {
  * Checks if the entered email is already taken by a user and sets a custom validation message.
  */
 function checkEmail() {
-    let user = users.find(user => user.mail == email.value);
+    let user = users.find(user => user.email == email.value);
     if (user) {
         email.setCustomValidity("Email already taken!");
     } else {

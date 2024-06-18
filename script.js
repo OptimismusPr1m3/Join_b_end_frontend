@@ -89,9 +89,7 @@ function toggleOptions() {
  * Logs out the user, clears user data from local storage, and redirects to the login page.
  */
 function logOut() {
-    let loginUser = '';
-    let logInUserAsJSON = JSON.stringify(loginUser);
-    localStorage.setItem('loggedInUser', logInUserAsJSON);
+    localStorage.setItem('token', '');
     window.location.href = 'login_index.html?msg=Logout_successfull'
 }
 
