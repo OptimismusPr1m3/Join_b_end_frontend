@@ -23,7 +23,8 @@ let userCategoryselect;
  * @param {object} logInUser - The logged-in user object.
  */
 async function initAddTask(activeSection) {
-    loadLocalStorageLoggedInUser('loggedInUser');
+    checkLoginState();
+    loadLocalStorageLoggedInUser();
     await includeHTML();
     await fetchContacts();
     await fetchTasks();

@@ -4,7 +4,6 @@
  * @param {string} taskId - The unique identifier of the task to be edited.
  */
 function openEditTaskPopup(taskId) {
-    debugger
     document.getElementById('addTaskHeading').innerText = 'Edit Task'
     let selectedTask = tasks.find(task => task.uniqueIndex == taskId);
     if (selectedTask.subtasks) {

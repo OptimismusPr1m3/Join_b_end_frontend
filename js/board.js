@@ -10,7 +10,8 @@ let boardState = 'todo';
  * @param {string} activeSection - The ID of the section that should be marked as active.
  */
 async function initBoard(activeSection) {
-    loadLocalStorageLoggedInUser('loggedInUser');
+    checkLoginState();
+    loadLocalStorageLoggedInUser();
     await includeHTML();
     await fetchTasks();
     await fetchContacts();

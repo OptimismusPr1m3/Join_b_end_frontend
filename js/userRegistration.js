@@ -74,7 +74,7 @@ function animatePopup() {
     popTxt.classList.add('animate-popup-text');
     setTimeout(() => {
         clearInputs();
-        window.location.href = 'login_index.html?msg=Registration succes!';
+        window.location.href = 'index_login.html?msg=Registration succes!';
     }, 3200)
 }
 

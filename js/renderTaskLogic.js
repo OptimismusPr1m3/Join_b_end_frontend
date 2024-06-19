@@ -158,7 +158,7 @@ function renderBigTask(task, taskId) {
                 ${renderBigTaskSubtasks(task)}
                 <div class="openBoard-options">
                     <div class="border-right hover-bg">${renderDeleteButton(task.uniqueIndex)}</div>
-                    <div class="hover-bg">${renderEditButton(task.uniqueIndex)}</div>
+                    <div  class="hover-bg">${renderEditButton(task.uniqueIndex)}</div>
                 </div>
             </div>
         </div>`
@@ -221,11 +221,13 @@ function renderDeleteButton(uniqueIndex) {
  */
 function renderEditButton(uniqueIndex) {
     return /*html*/`
+    <div style="display: flex" onclick="openEditTaskPopup(${uniqueIndex})">
         <img class="delete-img" src="assets/images/edit.svg" alt="">
         <img class="delete-img" src="assets/images/Edit-shrift-black.svg" alt="">
-        <img class="hover-img" style="display: none;" onclick="openEditTaskPopup(${uniqueIndex})" src="assets/images/edit-blue.svg" alt="">
-        <img class="hover-img" style="display: none;" onclick="openEditTaskPopup(${uniqueIndex})" src="assets/images/Edit-shrift.svg" alt="">
-    `
+        <img class="hover-img" style="display: none;" src="assets/images/edit-blue.svg" alt="">
+        <img class="hover-img" style="display: none;" src="assets/images/Edit-shrift.svg" alt="">
+    </div>
+   `
 }
 
 //Progress Bar
