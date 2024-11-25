@@ -3,6 +3,11 @@ let loginUser;
 let rememberedUser = 0;
 const LOGIN_URL = "http://127.0.0.1:8000/login/";
 
+const gastLogin = {
+  mail: "gast@admin.de",
+  password: "Gast12345",
+};
+
 /**
  * Initializes the login-section by performing various tasks in a specified order.
  * This function is responsible for fetching user data, handling user state (remembered state), and performing checks.
@@ -40,30 +45,73 @@ async function init() {
 //     }
 // }
 
-async function login() {
-    let token
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    const raw = JSON.stringify({
-      email: email.value,
-      password: password.value,
+/**
+ * Proceeds to the summary with the guest status.
+ */
+async function guestLogin() {
+  // window.location.href = "summary.html?msg=Login_Guest";
+  let token;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  const raw = JSON.stringify({
+    email: gastLogin.mail,
+    password: gastLogin.password,
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: headers,
+    body: raw,
+    redirect: "follow",
+  };
+
+  await fetch(LOGIN_URL, requestOptions)
+    .then((res) => res.json())
+    .then((res) => {
+      token = res.token;
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("currentUser", JSON.stringify(res));
     });
-
-    const requestOptions = {
-      method: "POST",
-      headers: headers,
-      body: raw,
-      redirect: "follow",
-    };
-
-    await fetch(LOGIN_URL, requestOptions)
-      .then((res) => res.json())
-      .then((res) => {
-        token = res.token
-        localStorage.setItem("token", res.token);
-        localStorage.setItem("currentUser", JSON.stringify(res));
-      });
   if (token) {
+    let popup = document.getElementById("valid");
+    popup.classList.add("show");
+    setTimeout(() => {
+      window.location.href = "summary.html?msg=Login_successfull";
+    }, 2200);
+  } else {
+    let popup = document.getElementById("invalid");
+    popup.classList.add("show");
+    setTimeout(() => {
+      location.reload();
+    }, 1500);
+  }
+}
+
+async function login() {
+  let token;
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  const raw = JSON.stringify({
+    email: email.value,
+    password: password.value,
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: headers,
+    body: raw,
+    redirect: "follow",
+  };
+
+  await fetch(LOGIN_URL, requestOptions)
+    .then((res) => res.json())
+    .then((res) => {
+      token = res.token;
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("currentUser", JSON.stringify(res));
+    });
+  if (token) {
+    setRememberMe();
     let popup = document.getElementById("valid");
     popup.classList.add("show");
     setTimeout(() => {
@@ -120,13 +168,6 @@ function loadRememberState() {
     let rememberAsString = localStorage.getItem("rememberedUser");
     rememberedUser = JSON.parse(rememberAsString);
   }
-}
-
-/**
- * Proceeds to the summary with the guest status.
- */
-function guestLogin() {
-  window.location.href = "summary.html?msg=Login_Guest";
 }
 
 /**
