@@ -483,7 +483,6 @@ function getInitials(firstName, lastName) {
  */
 function splitString(string) {
     let strings = [];
-    debugger
     strings.push(string.substring(0, string.indexOf(' ')));
     strings.push(string.substring(string.indexOf(' ') + 1));
     return strings;

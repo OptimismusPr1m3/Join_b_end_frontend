@@ -91,7 +91,7 @@ function toggleOptions() {
 function logOut() {
     localStorage.setItem('token', '');
     localStorage.setItem('currentUser', '');
-    window.location.href = 'index_login.html?msg=Logout_successfull'
+    window.location.href = 'index.html?msg=Logout_successfull'
 }
 
 /**
@@ -106,6 +106,6 @@ function goToHTML(hmtlSection){
 function checkLoginState() {
     const token = localStorage.getItem('token');
     if (token == '') {
-        goToHTML('index_login.html?msg=Please_Login!')
+        goToHTML('index.html?msg=Please_Login!')
     }
 }

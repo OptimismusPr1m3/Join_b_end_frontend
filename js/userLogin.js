@@ -1,7 +1,7 @@
 let users = [];
 let loginUser;
 let rememberedUser = 0;
-const LOGIN_URL = "http://127.0.0.1:8000/login/";
+const LOGIN_URL = "https://adioz1337.pythonanywhere.com/login/";
 
 const gastLogin = {
   mail: "gast@admin.de",

@@ -55,7 +55,7 @@ async function registration() {
     let firstLastName = splitString(fullName.value);
     newUser = new User(firstLastName[0], firstLastName[1], email.value, password.value);
     newContact = new Contact(firstLastName[0], firstLastName[1], "", email.value);
-    //await setContact(newContact);
+    await setContact(newContact);
     await createUser(newUser);
     // await setItem('users', JSON.stringify(users));
     // await setItem('contacts', JSON.stringify(contacts));
@@ -74,7 +74,7 @@ function animatePopup() {
     popTxt.classList.add('animate-popup-text');
     setTimeout(() => {
         clearInputs();
-        window.location.href = 'index_login.html?msg=Registration succes!';
+        window.location.href = 'index.html?msg=Registration succes!';
     }, 3200)
 }
 

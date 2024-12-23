@@ -119,12 +119,15 @@ function renderTaskCard(task) {
  */
 async function moveToMobile(state, taskId){
     event.stopPropagation();
+    let chosenTask
     tasks.forEach(task => {
         if (task.uniqueIndex == taskId) {
             task.state = state;
+            chosenTask = task;
         }
     });
-    await setItem('tasks', JSON.stringify(tasks));
+    //await setItem('tasks', JSON.stringify(tasks));
+    await updateTask(chosenTask, chosenTask.url);
     initBoard('board');
 }
 

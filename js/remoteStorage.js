@@ -1,7 +1,7 @@
 const STORAGE_TOKEN = "4IQMVEDAS02VQ4EJLUVFCEPW7G87BF8LMGK1KYF7";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
-const BACKEND_URL = "http://127.0.0.1:8000/api/";
+const BACKEND_URL = "https://adioz1337.pythonanywhere.com/api/";
 
 /**
  * Sets and saves an item in the remote storage using a key-value pair.
@@ -191,7 +191,7 @@ async function setTask(task) {
     redirect: "follow",
   };
   try {
-    fetch(BACKEND_URL + "tasks/", requestOptions);
+    await fetch(BACKEND_URL + "tasks/", requestOptions);
   } catch (error) {
     console.log(error);
   }
@@ -210,7 +210,7 @@ async function updateTask(task, URL) {
     redirect: "follow",
   };
   try {
-    fetch(URL, requestOptions);
+    await fetch(URL, requestOptions);
   } catch (error) {
     console.log(error);
   }

@@ -295,7 +295,7 @@ async function addTaskToBoard(priority) {
     } else {
         const task = new Task(title.value, description.value, contactBubbles, dueDate.value, prio, userCategoryselect, subtasks, boardState)
         console.log(task)
-        setTask(task);
+        await setTask(task);
         //await setItem('tasks', JSON.stringify(tasks));
         initAddTask('tasks');
         window.location.href = "board.html"; // Redirects to the board.html page.
