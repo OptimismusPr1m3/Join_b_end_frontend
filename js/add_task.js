@@ -65,6 +65,8 @@ function setMinDate() {
     const currentDate = new Date().toISOString().split("T")[0];
     const dateInput = document.getElementById("dueDate");
     dateInput.min = currentDate; // Sets the minimum date for the date input field to the current date.
+    dateInput.max = "2999-12-31";
+    dateInput.placeholder = 'dd.mm.yyyy'
     isCreatingAtTask = true;
 }
 
